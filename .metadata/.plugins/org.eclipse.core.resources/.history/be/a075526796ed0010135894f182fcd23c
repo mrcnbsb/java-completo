@@ -1,0 +1,57 @@
+import java.util.Scanner;
+
+public class Exercicios_condicionais {
+	public static void main(String[] args) {
+//		//Exercício 1
+//		Scanner sc = new Scanner(System.in);
+//		int num = sc.nextInt();
+//		if (num >= 0) {
+//			System.out.println("NAO NEGATIVO");
+//		}
+//		else {
+//			System.out.println("NEGATIVO");
+//		}		
+		
+//		//Exercício 2
+//		Scanner sc = new Scanner(System.in);
+//		int num = sc.nextInt();
+//		if (num % 2 == 0) {
+//			System.out.println("PAR");
+//		}
+//		else {
+//			System.out.println("IMPAR");
+//		}
+		
+//		//Exercício 3
+//		Scanner sc = new Scanner(System.in);
+//		int a = sc.nextInt();
+//		int b = sc.nextInt();
+//		
+//		if (a % b == 0 || b % a == 0) {
+//			System.out.println("Sao Multiplos");			
+//		}
+//		else {
+//			System.out.println("Nao sao Multiplos");
+//		}
+		
+		//Exercício 4
+		Scanner sc = new Scanner(System.in);
+		int h_inicial = sc.nextInt();
+		int h_final = sc.nextInt();
+		int duracao;
+		
+		if (h_final < h_inicial) {
+			duracao = 24 - h_inicial + h_final;			
+		}
+		else if (h_inicial == h_final) {
+			duracao = 24;
+		} else {
+			duracao = h_final - h_inicial;
+		}
+		
+		System.out.printf("O JOGO DUROU %d HORA(S)", duracao);
+		
+		sc.close();
+		
+	}
+}

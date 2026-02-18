@@ -1,0 +1,17 @@
+public class Strings {
+
+	public static void main(String[] args) {
+		String original = "abcde FGHIJ ABC abc DEFG   ";
+		System.out.println("Original: -" + original + "-");
+		
+		String s1 = original.toLowerCase();
+		System.out.println("toLowerCase(): -" + s1 + "-");
+		
+		String s2 = original.toUpperCase();
+		System.out.println("toUpperCase(): -" + s2 + "-");
+		
+		String s3 = original.trim();
+		System.out.println("trim(): -" + s3 + "-");
+
+	}
+}

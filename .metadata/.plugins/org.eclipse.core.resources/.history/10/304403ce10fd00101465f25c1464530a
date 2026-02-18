@@ -1,0 +1,46 @@
+package application;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.time.Instant;
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
+
+import entities.LogEntry;
+
+public class Program {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		Set<LogEntry> users = new HashSet<>();
+		
+		System.out.print("Enter file full path: ");
+		String path = sc.next();
+		
+		try(BufferedReader br = new BufferedReader(new FileReader(path))){
+			String log = br.readLine();
+			while(log != null) {
+				String[] fields = log.split(" ");
+				String name = fields[0];
+				Instant moment = Instant.parse(fields[1]);
+				LogEntry user = new LogEntry(name, moment);
+				users.add(user);
+//				System.out.println(name);
+				log = br.readLine();
+			}
+//			System.out.println(users);
+			System.out.println("Total users: " + users.size());
+			
+//			System.out.println();
+//			System.out.println(users);
+			
+		} catch(IOException e) {
+			System.out.println("Error: " + e.getMessage());
+		}		
+		sc.close();
+	}
+}

@@ -1,0 +1,50 @@
+package model.entities;
+
+import java.time.Duration;
+import java.time.LocalDate;
+
+public class Reservation {
+	
+	private Integer roomNumber;
+	private LocalDate checkIn;
+	private LocalDate chechOut;
+	
+	public Reservation() {
+	}
+
+	public Reservation(Integer roomNumber, LocalDate checkIn, LocalDate chechOut) {
+		this.roomNumber = roomNumber;
+		this.checkIn = checkIn;
+		this.chechOut = chechOut;
+	}
+
+	public Integer getRoomNumber() {
+		return roomNumber;
+	}
+
+	public void setRoomNumber(Integer roomNumber) {
+		this.roomNumber = roomNumber;
+	}
+
+	public LocalDate getCheckIn() {
+		return checkIn;
+	}	
+
+	public LocalDate getChechOut() {
+		return chechOut;
+	}
+
+	public long duration() {
+		return Duration.between(checkIn.atTime(0,0), chechOut.atTime(0,0)).toDays();
+	}
+	
+	public void updateDates(LocalDate checkIn, LocalDate checkOut) {
+		this.checkIn = checkIn;
+		this.chechOut = checkOut;
+	}
+	
+	
+	
+	
+
+}

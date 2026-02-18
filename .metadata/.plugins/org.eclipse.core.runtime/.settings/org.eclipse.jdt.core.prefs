@@ -1,0 +1,10 @@
+eclipse.preferences.version=1
+org.eclipse.jdt.core.classpathVariable.JRE_LIB=C\:/Program Files/Java/zulu25.30.17-ca-jdk25.0.1-win_x64/lib/jrt-fs.jar
+org.eclipse.jdt.core.classpathVariable.JRE_SRC=C\:/Program Files/Java/zulu25.30.17-ca-jdk25.0.1-win_x64/lib/src.zip
+org.eclipse.jdt.core.classpathVariable.JRE_SRCROOT=
+org.eclipse.jdt.core.codeComplete.visibilityCheck=enabled
+org.eclipse.jdt.core.compiler.codegen.targetPlatform=25
+org.eclipse.jdt.core.compiler.compliance=25
+org.eclipse.jdt.core.compiler.release=enabled
+org.eclipse.jdt.core.compiler.source=25
+org.eclipse.jdt.core.userLibrary.MySQLConnector=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<userlibrary systemlibrary\="false" version\="2">\r\n\t<archive path\="C\:/java-libs/jdbc-connectors/mysql-connector-j-9.6.0.jar"/>\r\n</userlibrary>\r\n

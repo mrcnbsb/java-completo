@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class Strings {
+
+	public static void main(String[] args) {
+
+//		int n1 = 89;
+//		int n2 = 60;
+//		System.out.println(n1 & n2); //=24
+//		System.out.println(n1 | n2); //=125
+//		System.out.println(n1 ^ n2); //=101
+		
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int mask = 0b00100000;
+		
+		if ((n & mask) != 0) {
+			System.out.println("6th bit is true!"); //113
+		} else {
+			System.out.println("6th bit is false!"); //89
+		}
+		sc.close();
+	}
+}

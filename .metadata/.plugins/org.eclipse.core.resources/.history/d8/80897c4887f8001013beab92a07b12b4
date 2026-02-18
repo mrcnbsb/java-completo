@@ -1,0 +1,77 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+import java.util.Scanner;
+
+import entities.Product;
+
+public class Exercicios_arquivos {
+
+	public static void main(String[] args) {
+		
+		Locale.setDefault(Locale.US);
+		Scanner sc = new Scanner(System.in);
+		
+		List<Product> list = new ArrayList<>();
+		
+		System.out.print("Enter a file path: ");
+		String sourceFileStr = sc.nextLine();
+		
+				
+		File sourceFile = new File(sourceFileStr);
+		String sourceFolderStr = sourceFile.getParent();//caminho do arquivo
+		//System.out.println(sourceFolderStr);
+
+		
+		//criar subpasta
+		boolean success = new File(sourceFolderStr + "\\out").mkdir();
+		//System.out.println("Directory created successfully: " + success);
+		
+		String targetFileStr = sourceFolderStr +  "\\out\\summary.csv";
+		
+		//ler o arquivo csv
+		try(BufferedReader br = new BufferedReader(new FileReader(sourceFileStr))){
+			String line = br.readLine();
+			while(line != null) {
+				String[] items = line.split(",");
+				String name = items[0];
+				double value = Double.parseDouble(items[1]);
+				int qtd = Integer.parseInt(items[2]);
+				double totalValue = value * qtd;
+				
+				//escrever o arquivo summary
+				try(BufferedWriter bw = new BufferedWriter(new FileWriter(targetFileStr, true))){
+					bw.write(name + "," + String.format("%.2f", totalValue));
+					bw.newLine(); //add quebra de linha					
+				} catch(IOException e) {
+					System.out.println(e.getStackTrace());
+				}
+				
+				
+//				System.out.println(name.toUpperCase());
+//				System.out.println(value);
+//				System.out.println(qtd);
+//				System.out.println(totalValue);
+				
+//				for(String item : items) {					
+//					System.out.println(item);
+//				}
+				
+				line = br.readLine();
+			}
+			
+			
+			
+		} catch(IOException e) {
+			System.out.println("Error: " + e.getMessage());
+		}
+		
+		sc.close();		
+	}
+}

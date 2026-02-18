@@ -1,0 +1,9 @@
+import java.util.Scanner;
+
+public class Exercicios_condicionais {
+	public static void main(String[] args) {
+		//Exercício 1
+		Scanner sc = new Scanner(System.in);
+		
+	}
+}

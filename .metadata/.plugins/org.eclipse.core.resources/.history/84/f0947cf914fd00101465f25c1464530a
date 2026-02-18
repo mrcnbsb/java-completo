@@ -1,0 +1,29 @@
+package application;
+
+import java.util.Map;
+import java.util.TreeMap;
+
+public class Program {
+
+	public static void main(String[] args) {
+
+		// Map<K, V> (coleção de pares chave/valor)
+		// não admite repetições
+		// (indexados pela chave) elementos não possuem posição
+		// interseção, união, diferença
+
+		Map<String, String> cookies = new TreeMap<>();
+		
+		//inserir: put
+		cookies.put("username", "Maria");
+		cookies.put("email", "maria@gmail.com");
+		cookies.put("phone", "99887766");
+		
+		System.out.println("ALL COOKIES:");
+		for(String key : cookies.keySet()) {
+			System.out.println(key + ": " + cookies.get(key));
+		}
+		
+		cookies.remove("email");
+	}
+}

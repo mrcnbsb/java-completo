@@ -1,0 +1,16 @@
+package application;
+
+import java.time.LocalDate;
+
+import model.entities.Reservation;
+
+public class Program_muito_ruim {
+
+	public static void main(String[] args) {
+		
+		Reservation reservation = new Reservation(1221, LocalDate.parse("2026-01-21"), LocalDate.parse("2026-01-25"));
+		System.out.println(reservation.duration());
+		System.out.println(reservation);
+	}
+
+}

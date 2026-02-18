@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class Exercicios_condicionais {
+	public static void main(String[] args) {
+//		//Exercício 1
+//		Scanner sc = new Scanner(System.in);
+//		int num = sc.nextInt();
+//		if (num >= 0) {
+//			System.out.println("NAO NEGATIVO");
+//		}
+//		else {
+//			System.out.println("NEGATIVO");
+//		}		
+		
+		//Exercício 2
+		Scanner sc = new Scanner(System.in);
+		int num = sc.nextInt();
+		if (num % 2 == 0) {
+			System.out.println("PAR");
+		}
+		else {
+			System.out.println("IMPAR");
+		}
+		
+		
+		
+	}
+}

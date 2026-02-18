@@ -1,0 +1,48 @@
+import java.util.Scanner;
+
+public class Funcoes {
+
+	public static void main(String[] args) {
+		
+		//modularização, delegação e reaproveitamento
+		
+		double x = Math.sqrt(25.0); // função nativa Math.sqrt		
+		System.out.println(x); // função nativa 
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter three numbers: ");
+		int a = sc.nextInt();
+		int b = sc.nextInt();
+		int c = sc.nextInt();
+		
+//		if (a > b && a > c) {
+//			System.out.println("Highter = " + a);
+//		} else if (b > c) {
+//			System.out.println("Highter = " + b);
+//		} else {
+//			System.out.println("Highter = " + c);
+//		}
+		
+		int highter = max(a, b, c);
+		showResult(highter);
+		
+		sc.close();		
+	}
+	
+	public static int max(int x, int y, int z) {
+		int aux;
+		if (x > y && x > z) {
+			aux = x;
+		} else if (y > z) {
+			aux = y;
+		} else {
+			aux = z;
+		}
+		return aux;
+	}
+	
+	public static void showResult(int value) {
+		System.out.println("Highter = " + value);
+	}
+	
+}

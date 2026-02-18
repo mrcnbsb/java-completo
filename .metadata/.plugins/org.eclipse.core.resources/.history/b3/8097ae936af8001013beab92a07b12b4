@@ -1,0 +1,34 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class Exercicios_arquivos {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("Enter a file path: ");
+		String strPath = sc.nextLine();
+		
+		try(BufferedReader br = new BufferedReader(new FileReader(strPath))){
+			String line = br.readLine();
+			while(line != null) {
+				String[] items = line.split(",");
+				System.out.println(items[0]);
+				System.out.println(items[1]);
+				System.out.println(items[2]);
+//				for(String item : items) {					
+//					System.out.println(item);
+//				}
+				
+				line = br.readLine();
+			}
+		} catch(IOException e) {
+			System.out.println("Error: " + e.getMessage());
+		}
+		
+		sc.close();		
+	}
+}

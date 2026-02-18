@@ -1,0 +1,54 @@
+import java.util.Scanner;
+
+public class Exercicios_for {
+	public static void main(String[] args) {
+//		//Exercício 1
+//		Scanner sc = new Scanner(System.in);
+//		int valor = sc.nextInt();
+//		for(int i=1; i<valor; i+=2) {
+//			System.out.println(i);
+//		}		
+//		sc.close();	
+		
+//		//Exercício 2
+//		Scanner sc = new Scanner(System.in);
+//		int x = sc.nextInt();
+//		int in = 0;
+//		int out = 0;
+//		int valor;
+//		for(int i=0; i<x; i++) {
+//			valor = sc.nextInt();
+//			if (valor >= 10 && valor <= 20) {
+//				in++;			
+//			} else {
+//				out++;
+//			}
+//		}
+//		System.out.printf("%d in%n", in);
+//		System.out.printf("%d out%n", out);
+//		sc.close();
+		
+		//Exercício 3
+		Scanner sc = new Scanner(System.in);
+		int x = sc.nextInt();
+		double a, b, c, result;
+		for(int i=0; i<x; i++) {
+			a = sc.nextDouble();
+			b = sc.nextDouble();
+			c = sc.nextDouble();
+			result = (a*2 + b*3 + c*5)/10;
+			System.out.println(result);
+		}		
+		sc.close();
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+}

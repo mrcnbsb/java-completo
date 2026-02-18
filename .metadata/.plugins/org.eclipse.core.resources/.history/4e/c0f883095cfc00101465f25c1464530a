@@ -1,0 +1,35 @@
+package application;
+
+import entities.Client;
+
+public class Program {
+
+	public static void main(String[] args) {
+		
+		//hashCode e equals
+		
+		//equals
+		String a = "Maria";
+		String b = "Alex";		
+		String c = "Maria";
+		System.out.println(a.equals(b)); // =false
+		//não há erro, mas é mais lento que hashCode
+		
+		//hashCode
+		System.out.println(a.hashCode()); // =74113750
+		System.out.println(b.hashCode()); // =2043454
+		System.out.println(c.hashCode()); // =74113750
+		//se o código de dois objetos for igual, os objetos são iguais
+		//pode haver colisão, mas muito pouco provável
+		
+		System.out.println("-------------------");
+		
+		Client c1 = new Client("Maria", "maria@gmail.com");
+		Client c2 = new Client("Maria", "maria@gmail.com");
+		
+		System.out.println(c1.hashCode());
+		System.out.println(c2.hashCode());
+		System.out.println(c1.equals(c2));
+		System.out.println(c1 == c2);
+	}
+}

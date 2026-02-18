@@ -1,0 +1,59 @@
+package model.entities;
+
+import java.time.Duration;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+public class Reservation {
+	
+	private static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+	
+	private Integer roomNumber;
+	private LocalDate checkIn;
+	private LocalDate checkOut;
+	
+	public Reservation() {
+	}
+
+	public Reservation(Integer roomNumber, LocalDate checkIn, LocalDate checkOut) {
+		this.roomNumber = roomNumber;
+		this.checkIn = checkIn;
+		this.checkOut = checkOut;
+	}
+
+	public Integer getRoomNumber() {
+		return roomNumber;
+	}
+
+	public void setRoomNumber(Integer roomNumber) {
+		this.roomNumber = roomNumber;
+	}
+
+	public LocalDate getCheckIn() {
+		return checkIn;
+	}	
+
+	public LocalDate getChechOut() {
+		return checkOut;
+	}
+
+	public long duration() {
+		return Duration.between(checkIn.atTime(0,0), checkOut.atTime(0,0)).toDays();
+	}
+	
+	public void updateDates(LocalDate checkIn, LocalDate checkOut) {
+		this.checkIn = checkIn;
+		this.checkOut = checkOut;
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("Reservation: Room ");
+		sb.append(this.roomNumber + ", check-in: ");
+		sb.append(dtf.format(this.checkIn) + ", check-out: ");
+		sb.append(dtf.format(this.checkOut) + ", ");
+		sb.append(this.duration() + " nights");
+		return sb.toString();				
+	}
+}

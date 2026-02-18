@@ -1,0 +1,10 @@
+public class Strings {
+
+	public static void main(String[] args) {
+		String original = "abcde FGHIJ ABC abc DEFG   ";
+		
+		String s1 = original.toLowerCase();
+		System.out.println(s1);
+
+	}
+}

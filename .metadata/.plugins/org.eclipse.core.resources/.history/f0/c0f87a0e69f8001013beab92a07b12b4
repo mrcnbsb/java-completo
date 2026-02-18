@@ -1,0 +1,21 @@
+import java.io.File;
+import java.util.Scanner;
+
+public class Exercicios_arquivos {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("Enter a file path: ");
+		String strPath = sc.nextLine();
+				
+		File file = new File(strPath);
+		
+		System.out.println(file.getName());
+		
+	
+		
+		sc.close();		
+	}
+}

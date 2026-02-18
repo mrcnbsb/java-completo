@@ -1,0 +1,52 @@
+import java.util.Scanner;
+
+public class Exercicios_while {
+
+	public static void main(String[] args) {
+		
+//		//Exercício 1
+//		Scanner sc = new Scanner(System.in);
+//		int senha = sc.nextInt();
+//		while (senha != 2002) {
+//			System.out.println("Senha Invalida");
+//			senha = sc.nextInt();
+//		}
+//		System.out.println("Acesso Permitido");					
+//		sc.close();
+		
+//		//Exercício 2
+//		Scanner sc = new Scanner(System.in);
+//		int x = sc.nextInt();
+//		int y = sc.nextInt();
+//		while(x != 0 && y != 0) {
+//			if (x>0 && y>0) {
+//				System.out.println("primeiro");
+//			} else if (x>0 && y<0) {
+//				System.out.println("quarto");
+//			} else if (x<0 && y>0) {
+//				System.out.println("quarto");
+//			} else {
+//				System.out.println("terceiro");
+//			}
+//			x = sc.nextInt();
+//			y = sc.nextInt();
+//		}		
+//		sc.close();
+		
+		//Exercício 3
+		Scanner sc = new Scanner(System.in);
+		int entrada = sc.nextInt();
+		int alcool = 0
+				
+				
+		while(entrada != 4) {
+			
+		}
+		System.out.println("MUITO OBRIGADO");
+		System.out.printf("Alcool: %d%n", alcool);
+		System.out.printf("Alcool: %d%n", gasolina);
+		System.out.printf("Alcool: %d%n", diesel);
+		
+		sc.close()/		
+	}
+}

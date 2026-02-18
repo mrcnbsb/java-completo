@@ -1,0 +1,23 @@
+package util;
+
+public class Calculator {
+	
+	//sem static
+//	public final double PI = 3.14159; // final -> o valor não pode ser alterado, criar constante	
+//	public double circunference(double radius) {
+//		return 2.0 * PI * radius;
+//	}	
+//	public double volume(double radius) {
+//		return 4.0 * PI * Math.pow(radius, 3) / 3.0;
+//	}
+	
+	//com static
+	public static final double PI = 3.14159; // final -> o valor não pode ser alterado, criar constante	
+	public static double circunference(double radius) {
+		return 2.0 * PI * radius;
+	}	
+	public static double volume(double radius) {
+		return 4.0 * PI * Math.pow(radius, 3) / 3.0;
+	}
+
+}

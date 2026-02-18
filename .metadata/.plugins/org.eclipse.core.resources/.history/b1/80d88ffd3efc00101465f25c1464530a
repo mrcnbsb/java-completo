@@ -1,0 +1,25 @@
+package application;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Program {
+
+	public static void main(String[] args) {
+		
+//		List<Object> myObjs = new ArrayList<>();
+//		List<Integer> myNumbers = new ArrayList<>();
+//		myObjs = myNumbers; // erro de compilação
+		
+//		Object obj = new Object();
+//		Integer x = 10;
+//		obj = x;
+		
+		//Tipos curinga
+		List<?> myObjs = new ArrayList<>();
+		List<Integer> myNumbers = new ArrayList<>();
+		myObjs = myNumbers; // erro de compilação
+		
+	
+	}
+}

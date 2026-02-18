@@ -1,0 +1,22 @@
+package application;
+
+public class Program {
+
+	public static void main(String[] args) {
+		
+		//hashCode e equals
+		
+		//equals
+		String a = "Maria";
+		String b = "Alex";		
+		String c = "Maria";
+		System.out.println(a.equals(b)); // =false
+		
+		//hashCode
+		System.out.println(a.hashCode()); // =74113750
+		System.out.println(b.hashCode()); // =2043454
+		System.out.println(c.hashCode());
+		
+
+	}
+}

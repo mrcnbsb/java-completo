@@ -1,0 +1,18 @@
+package application;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Stream;
+
+public class Program {
+
+	public static void main(String[] args) {
+		
+		//stream
+		
+		List<Integer> list = Arrays.asList(3, 4, 5, 10, 7);
+		
+		//criar uma stream a partir da lista
+		Stream<Integer> st1 = list.stream();
+	}
+}

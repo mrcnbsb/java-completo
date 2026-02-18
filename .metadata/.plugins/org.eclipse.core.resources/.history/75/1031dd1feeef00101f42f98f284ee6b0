@@ -1,0 +1,35 @@
+import java.util.Locale;
+import java.util.Scanner;
+
+public class Estruturas_repetitivas_do_while {
+
+	public static void main(String[] args) {
+
+		Locale.setDefault(Locale.US);
+		Scanner sc = new Scanner(System.in);
+
+//		executado ao menos uma vez		
+//		do {
+//			comando 1
+//			comando 2
+//		} while (condicao)
+
+		System.out.println("Digite a temperatura em Celsius: ");
+		double c = sc.nextDouble();
+		double f;		
+		String cont = "s";
+		
+		do {
+			f = 9*c/5 + 32;
+			System.out.printf("Equivalente em Fahrenheit: %.1f%n", f);
+			sc.nextLine();
+			System.out.println("Deseja repetir (s/n)? ");
+			cont = sc.nextLine();
+			if (cont == "s") {
+				System.out.println("Digite a temperatura em Celsius: ");
+				c = sc.nextDouble();
+			} 			
+		} while (cont == "s");		
+		sc.close();
+	}
+}

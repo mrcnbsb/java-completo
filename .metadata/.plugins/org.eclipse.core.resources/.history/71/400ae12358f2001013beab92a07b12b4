@@ -1,0 +1,45 @@
+import java.util.Locale;
+import java.util.Scanner;
+
+public class Matrizes {
+
+	public static void main(String[] args) {
+		
+		Locale.setDefault(Locale.US);
+		Scanner sc = new Scanner(System.in);
+		
+		int n = sc.nextInt();
+		
+		//instanciação da matriz na memória
+		int[][] mat = new int[n][n];
+		
+		for (int i=0; i<n; i++) {//percorre a linha
+			for(int j=0; j<n; j++) { //percorre a coluna
+				mat[i][j] = sc.nextInt();				
+			}
+		}
+		
+		System.out.println("Main diagonal:");
+		for (int i=0; i<n; i++) {//percorre a linha
+			for(int j=0; j<n; j++) { //percorre a coluna
+				if (i == j) {
+					System.out.print(mat[i][j] + " ");
+				}				
+			}
+		}
+		
+		int negativeNumbers = 0;		
+		for (int i=0; i<n; i++) {//percorre a linha
+			for(int j=0; j<n; j++) { //percorre a coluna
+				if (mat[i][j] < 0) {
+					negativeNumbers++;
+				}				
+			}
+		}		
+		System.out.println("Negative numbers: " + negativeNumbers);
+				
+		sc.close();
+
+	}
+
+}

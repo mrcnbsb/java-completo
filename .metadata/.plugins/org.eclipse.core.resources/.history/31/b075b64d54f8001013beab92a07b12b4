@@ -1,0 +1,11 @@
+import java.io.File;
+
+public class Arquivos {
+
+	public static void main(String[] args) {
+		
+		File file = new File("c:\\temp\\in.txt");
+
+	}
+
+}

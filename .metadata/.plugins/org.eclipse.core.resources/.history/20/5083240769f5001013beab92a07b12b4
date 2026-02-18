@@ -1,0 +1,15 @@
+package entities;
+
+public class SavingsAccount extends Account { //conta poupança
+	
+	private Double interestRate;
+	
+	publdic SavingsAccount() {
+		super();
+	}
+	
+	
+	
+	
+
+}

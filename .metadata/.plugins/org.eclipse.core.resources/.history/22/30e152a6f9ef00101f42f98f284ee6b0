@@ -1,0 +1,45 @@
+public class Funcoes {
+
+	public static void main(String[] args) {
+		String original = "abcde FGHIJ ABC abc DEFG   ";
+		System.out.println("Original: -" + original + "-");
+		
+		String s1 = original.toLowerCase();
+		System.out.println("toLowerCase(): -" + s1 + "-");
+		
+		String s2 = original.toUpperCase();
+		System.out.println("toUpperCase(): -" + s2 + "-");
+		
+		String s3 = original.trim();
+		System.out.println("trim(): -" + s3 + "-"); // elimina espaços nas extremidades da string
+		
+		String s4 = original.substring(2);
+		System.out.println("substring(2): -" + s4 + "-");
+		
+		String s5 = original.substring(2, 9); // do 2 até o 9 exclusive
+		System.out.println("substring(2, 4): -" + s5 + "-");
+		
+		String s6 = original.replace('a', 'x');
+		System.out.println("replace('a', 'x'): -" + s6 + "-");
+		
+		String s7 = original.replace("abc", "xy");
+		System.out.println("replace('abc', 'xy'): -" + s7 + "-");
+		
+		int i = original.indexOf("bc");
+		System.out.println("indexOf('bc'): " + i);
+		
+		int j = original.lastIndexOf("bc");
+		System.out.println("lastIndexOf('bc'): " + j);
+		
+		//split
+		String s = "potato apple lemon orange";
+		String[] vect = s.split(" ");
+		String w1 = vect[0];
+		String w2 = vect[1];
+		String w3 = vect[2];		
+		System.out.println("vect[0]: " + w1);
+		System.out.println("vect[1]: " + w2);
+		System.out.println("vect[2]: " + w3);
+		
+	}
+}

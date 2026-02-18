@@ -1,0 +1,21 @@
+package application;
+
+import java.io.IOException;
+import java.util.Scanner;
+
+public class Program {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter the file path: "); // C:\\temp\\in3.csv
+		String path = sc.nextLine();
+		
+		try(){
+			
+		} catch(IOException e) {
+			System.out.println("Error: " + e.getMessage());
+		}
+		
+		sc.close();
+	}
+}

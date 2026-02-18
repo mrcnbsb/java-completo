@@ -1,0 +1,34 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Listas {
+
+	public static void main(String[] args) {
+		
+		//declaração da lista
+		List<String> list; //não aceita tipos primitivos
+		
+		//instanciação da lista
+		list = new ArrayList<>(); //List é interface, não pode ser instanciada diretamente, mas uma classe que implementa a interface
+		
+		//add elemento
+		list.add("Maria");
+		list.add("Alex");
+		list.add("Bob");
+		list.add("Anna");
+		list.add(2,"Marco"); //add na posição 2 sem prejudiar o restante da lista
+		
+		//tamanho da lista
+		System.out.println(list.size());
+		
+		//remover elemento da lista
+		list.remove("Anna"); //remove pela comparação do valor
+		list.remove(1)
+		
+		for (String x : list) {
+			System.out.println(x);
+		}
+		
+	}
+
+}

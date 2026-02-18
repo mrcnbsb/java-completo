@@ -1,0 +1,15 @@
+package application;
+
+public class Program {
+
+	public static void main(String[] args) {
+
+		// Map<K, V>
+		// não admite repetições
+		// elementos não possuem posição
+		// interseção, união, diferença
+
+
+		
+	}
+}

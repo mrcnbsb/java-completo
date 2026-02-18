@@ -1,0 +1,42 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class Exercicios_arquivos {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("Enter a file path: ");
+		String strPath = sc.nextLine();
+		
+		try(BufferedReader br = new BufferedReader(new FileReader(strPath))){
+			String line = br.readLine();
+			while(line != null) {
+				String[] items = line.split(",");
+				String name = items[0];
+				double value = Double.parseDouble(items[1]);
+				int qtd = Integer.parseInt(items[2]);
+				double totalValue = value * qtd;
+				
+				
+//				System.out.println(name.toUpperCase());
+//				System.out.println(value);
+//				System.out.println(qtd);
+//				System.out.println(totalValue);
+				
+//				for(String item : items) {					
+//					System.out.println(item);
+//				}
+				
+				line = br.readLine();
+			}
+		} catch(IOException e) {
+			System.out.println("Error: " + e.getMessage());
+		}
+		
+		sc.close();		
+	}
+}

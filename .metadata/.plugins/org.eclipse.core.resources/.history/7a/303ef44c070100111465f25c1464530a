@@ -1,0 +1,71 @@
+package application;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+import java.util.Scanner;
+import java.util.stream.Collectors;
+
+import model.entities.Employee;
+
+public class Program {
+
+	public static void main(String[] args) {
+		Locale.setDefault(Locale.US);
+		Scanner sc = new Scanner(System.in);
+				
+		System.out.print("Enter the file path: "); // C:\\temp\\in6.txt
+		String path = sc.nextLine();
+		
+		try(BufferedReader br = new BufferedReader(new FileReader(path))){
+			
+			List<Employee> employees = new ArrayList<>();			
+			
+			String employeeFile = br.readLine();
+			while(employeeFile != null) {
+				String[] fields = employeeFile.split(",");
+				employees.add(new Employee(fields[0], fields[1], Double.parseDouble(fields[2])));
+				employeeFile = br.readLine();
+			}
+			
+			System.out.print("Enter salary: ");
+			double empSalary = sc.nextDouble();
+			
+			List<String> emails = employees.stream()
+					.filter(e -> e.getSalary() > empSalary)
+					.map(e -> e.getEmail())
+					.sorted()
+					.collect(Collectors.toList());
+			
+			emails.forEach(System.out::println);
+			
+//			double avg = products.stream() //converteu pra stream
+//					.map(p -> p.getPrice())
+//					.reduce(0.0, (x,y)->x+y) / products.size();
+//			
+//			System.out.println("Average price: $ " + String.format("%.2f", avg));
+//			
+//			Comparator<String> comp = (s1, s2) -> s1.toUpperCase().compareTo(s2.toUpperCase());
+//			
+//			List<String> names = products.stream()
+//					.filter(p -> p.getPrice() < avg)
+//					.map(p -> p.getName())
+//					.sorted(comp.reversed())
+//					.collect(Collectors.toList());
+//			
+//			names.forEach(System.out::println);
+			
+			for(Employee e : employees) {
+				System.out.println(e);
+			}
+			
+			
+		} catch(IOException e) {
+			System.out.println("Error: " + e.getMessage());
+		}	
+		sc.close();
+	}
+}

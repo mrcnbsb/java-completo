@@ -1,0 +1,24 @@
+package application;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class Program {
+
+	public static void main(String[] args) {
+		
+		//hashCode e equals
+		
+		//equals
+		String a = "Maria";
+		String b = "Alex";		
+		System.out.println(a.equals(b)); // =false
+		
+		//hashCode
+		System.out.println(a.hashCode());
+		System.out.println(b.hashCode());
+		
+
+	}
+}

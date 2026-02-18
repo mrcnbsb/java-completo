@@ -1,0 +1,19 @@
+package model.services;
+
+import model.entities.Contract;
+import model.entities.Installment;
+
+public class ContractService {
+	
+	private OnlinePaymentService onlinePaymentService;
+	
+	public ContractService(OnlinePaymentService onlinePaymentService) {
+		this.onlinePaymentService = onlinePaymentService;
+	}
+
+	public void processContract(Contract contract, Integer months) {
+		
+		contract.addInstallment(new Installment(dueDate, amount));
+	}
+
+}

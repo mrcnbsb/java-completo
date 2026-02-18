@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class Main {
+	public static void main (String[] args) {
+		
+		Scanner sc = new Scanner(System.in); // teclado no modo console
+		
+//		String x;		
+//		x = sc.next(); // texto sem espaço
+//		System.out.println("Você digitou: " + x);
+		
+		int y;		
+		y = sc.nextInt(); // número inteiro
+		System.out.println("Você digitou: " + y);
+		
+		
+		
+		
+		sc.close(); // encerrar o recurso		
+	}
+
+}

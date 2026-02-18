@@ -1,0 +1,14 @@
+package application;
+
+import java.time.LocalDateTime;
+
+public class Program {
+
+	public static void main(String[] args) {
+		
+		LocalDateTime date = LocalDateTime.parse("2018-06-21T13:05:44");
+		System.out.println(date);
+
+	}
+
+}

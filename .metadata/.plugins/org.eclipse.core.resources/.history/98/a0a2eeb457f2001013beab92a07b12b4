@@ -1,0 +1,28 @@
+import java.util.Locale;
+import java.util.Scanner;
+
+public class Matrizes {
+
+	public static void main(String[] args) {
+		
+		Locale.setDefault(Locale.US);
+		Scanner sc = new Scanner(System.in);
+		
+		int n = sc.nextInt();
+		
+		//instanciação da matriz na memória
+		int[][] mat = new int[n][n];
+		
+		for (int i=0; i<n; i++) {//percorre a linha
+			for(int j=0; j<n; j++) { //percorre a coluna
+				mat[i][j] = sc.nextInt();				
+			}
+		}
+		
+		System.out.println(mat[0][1]);
+		
+		sc.close();
+
+	}
+
+}

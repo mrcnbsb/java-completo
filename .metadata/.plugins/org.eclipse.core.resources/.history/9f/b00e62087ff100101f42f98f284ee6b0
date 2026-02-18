@@ -1,0 +1,221 @@
+package application;
+
+import java.util.Locale;
+import java.util.Scanner;
+
+import entities.Person;
+
+public class Program {
+
+	public static void main(String[] args) {
+		
+		Locale.setDefault(Locale.US);
+		Scanner sc = new Scanner(System.in);
+		
+//		//Problema 'negativos'
+//		int n = sc.nextInt();
+//		int[] vect = new int[n];
+//		for (int i=0; i<vect.length; i++) {
+//			vect[i] = sc.nextInt();
+//		}
+//		System.out.println("NUMEROS NEGATIVOS:");
+//		for(int i=0;i<vect.length;i++) {
+//			if(vect[i] < 0) {
+//				System.out.println(vect[i]);
+//			}
+//		}
+		
+//		//Problema 'soma vetor'
+//		System.out.print("Quantos numeros voce vai digitar? ");
+//		int n = sc.nextInt();
+//		double[] vect = new double[n];
+//		for(int i=0; i<vect.length; i++) {
+//			System.out.print("Digite um numero: ");
+//			vect[i] = sc.nextDouble();
+//		}
+//		System.out.println();
+//		double sum = 0.0;
+//		System.out.print("VALORES = ");
+//		for(int i=0; i<vect.length; i++) {
+//			System.out.print(vect[i] + " ");
+//			sum += vect[i];
+//		}		
+//		System.out.printf("%n");
+//		double avg = sum / vect.length;
+//		System.out.printf("SOMA = %.2f%n", sum);
+//		System.out.printf("MEDIA = %.2f%n", avg);
+		
+//		//Problema 'alturas'
+//		System.out.print("Quantas pessoas serao digitadas? ");
+//		int n = sc.nextInt();		
+//		Person[] people = new Person[n];
+//		for(int i=0; i<people.length; i++) {
+//			sc.nextLine();
+//			System.out.printf("Dados da %da pessoa:%n", i+1);
+//			System.out.print("Nome: ");			
+//			String name = sc.nextLine();
+//			System.out.print("Idade: ");
+//			int idade = sc.nextInt();
+//			System.out.print("Altura: ");
+//			double altura = sc.nextDouble();			
+//			people[i] = new Person(name, idade, altura);
+//		}		
+//		System.out.println();
+//		double avgHeight = 0.0;
+//		for (int i=0; i<people.length; i++) {
+//			avgHeight += people[i].getHeight();
+//		}
+//		avgHeight /= people.length;
+//		System.out.printf("Altura média: %.2f%n", avgHeight);		
+//		int less16 = 0;
+//		for (int i=0; i<people.length; i++) {
+//			if(people[i].getAge() < 16) {
+//				less16++;
+//			}
+//		}		
+//		double percentageLess16 = less16 * 100 / people.length;
+//		System.out.println("Pessoas com menos de 16 anos: " + String.format("%.1f", percentageLess16) + "%");		
+//		for (int i=0; i<people.length; i++) {
+//			if(people[i].getAge() < 16) {
+//				System.out.println(people[i].getName());
+//			}
+//		}
+		
+//		//Problema 'números pares'
+//		System.out.print("Quantos numeros voce vai digitar? ");
+//		int n = sc.nextInt();		
+//		int[] vect = new int[n];		
+//		for (int i=0; i<vect.length; i++) {
+//			System.out.print("Digite um numero: ");
+//			vect[i] = sc.nextInt();
+//		}		
+//		int even = 0;
+//		System.out.println();
+//		System.out.println("NUMEROS PARES:");
+//		for (int i=0; i<vect.length; i++) {
+//			if(vect[i] % 2 == 0) {
+//				even++;
+//				System.out.print(vect[i] + " ");
+//			}
+//		}		
+//		System.out.printf("%n%n");
+//		System.out.println("QUANTIDADE DE PARES = " + even);		
+		
+//		//Problema 'maior posição'
+//		System.out.print("Quantos numeros voce vai digitar? ");
+//		int n = sc.nextInt();
+//		double[] vect = new double[n];		
+//		for (int i=0; i<vect.length; i++) {
+//			System.out.print("Digite um numero: ");
+//			vect[i] = sc.nextDouble();
+//		}		
+//		double max = 0.0;
+//		int position = 0;
+//		for (int i=0; i<vect.length; i++) {
+//			if (vect[i] > max) {
+//				max = vect[i];
+//				position = i;
+//			}
+//		}		
+//		System.out.println();
+//		System.out.println("MAIOR VALOR = " + String.format("%.1f", max));
+//		System.out.println("POSICAO DO MAIOR VALOR = " + position);
+		
+//		//Problema 'soma vetores'
+//		System.out.print("Quantos valores vai ter cada vetor? ");
+//		int n = sc.nextInt();
+//		int[] vectA = new int[n];
+//		int[] vectB = new int[n];
+//		int[] vectC = new int[n];
+//		System.out.println("Digite os valores do vetor A:");
+//		for (int i=0; i<vectA.length; i++) {
+//			vectA[i] = sc.nextInt();
+//		}
+//		System.out.println("Digite os valores do vetor B:");
+//		for (int i=0; i<vectB.length; i++) {
+//			vectB[i] = sc.nextInt();
+//		}
+//		for (int i=0; i<vectC.length; i++) {
+//			vectC[i] = vectA[i] + vectB[i];
+//		}
+//		System.out.println("VETOR RESULTANTE:");
+//		for (int i=0; i<vectC.length; i++) {
+//			System.out.println(vectC[i]);
+//		}
+		
+//		//Problema 'abaixo da media'
+//		System.out.print("Quantos elementos vai ter o vetor? ");		
+//		int n = sc.nextInt();		
+//		double[] vect = new double[n];
+//		for (int i=0; i<vect.length; i++) {
+//			System.out.print("Digite um numero: ");
+//			vect[i] = sc.nextDouble();
+//		}
+//		double avg = 0.0;
+//		for (int i=0; i<vect.length; i++) {
+//			avg += vect[i];
+//		}
+//		avg /= vect.length;
+//		System.out.println();
+//		System.out.println("MEDIA DO VETOR = " + String.format("%.3f", avg));
+//		System.out.println("ELEMENTOS ABAIXO DA MEDIA:");
+//		for (int i=0; i<vect.length; i++) {
+//			if (vect[i] < avg) {
+//				System.out.println(vect[i]);
+//			}
+//		}
+		
+//		//Problema 'média pares'
+//		System.out.print("Quantos elementos vai ter o vetor? ");
+//		int n = sc.nextInt();		
+//		int[] vect = new int[n];
+//		for (int i=0; i<vect.length; i++) {
+//			System.out.print("Digite um numero: ");
+//			vect[i] = sc.nextInt();
+//		}
+//		double evenAvg = 0.0;
+//		int nEven = 0;
+//		for (int i=0; i<vect.length; i++) {
+//			if (vect[i] % 2 == 0) {
+//				evenAvg += vect[i];
+//				nEven++;
+//			}
+//		}
+//		if (nEven == 0) {
+//			System.out.println("NENHUM NUMERO PAR");
+//		} else {
+//			evenAvg /= nEven;
+//			System.out.println("MEDIA DOS PARES = " + String.format("%.1f", evenAvg));
+//		}
+		
+		//Problema 'mais velho'
+		System.out.print("Quantas pessoas voce vai digitar? ");
+		int n = sc.nextInt();
+		sc.nextLine();
+		Person[] vect = new Person[n];
+		for (int i=0; i<vect.length; i++) {
+			System.out.printf("Dados da %da pessoa:%n", i+1);
+			System.out.print("Nome: ");
+			String name = sc.nextLine();
+			System.out.print("Idade: ");
+			int age = sc.nextInt();
+			vect[i] = new Person(name, age);
+		}
+		String oldName = null;
+		int maxAge = 0;
+		for (int i=0; i<vect.length; i++) {
+			if (vect[i].getAge() > maxAge) {
+				maxAge = vect[i].getAge();
+				oldName = vect[i].getName();
+			}
+		}
+		System.out.println("PESSOA MAIS VELHA: " + oldName);
+		
+		
+		
+		
+		
+		
+		sc.close();
+	}
+}

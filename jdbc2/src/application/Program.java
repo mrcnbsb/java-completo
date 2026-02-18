@@ -1,0 +1,35 @@
+package application;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import db.DB;
+
+public class Program {
+
+	public static void main(String[] args) {
+		
+		Connection conn = null;//conexão com o BD
+		Statement st = null; //comando SQL
+		ResultSet rs = null; //armazena resultado do comando SQL
+		
+		try {
+			conn = DB.getConnection();//conectou ao BD
+			st = conn.createStatement();//instanciou um objeto do tipo statement
+			rs = st.executeQuery("SELECT * FROM DEPARTMENT"); //recebe o resultado da query em forma de tabela
+			
+			while(rs.next()) {//por padrão começa na posição zero, antes dos dados (título)
+				System.out.println(rs.getInt("Id") + ", " + rs.getString("Name"));
+			}
+			
+		} catch(SQLException e) {
+			e.printStackTrace();
+		} finally {			
+			DB.closeResultSet(rs);
+			DB.closeStatement(st);
+			DB.closeConnection();
+		}
+	}
+}
