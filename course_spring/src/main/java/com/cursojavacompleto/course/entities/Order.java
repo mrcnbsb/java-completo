@@ -60,8 +60,7 @@ public class Order implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-   
+    }   
 
     public Instant getMoment() {
         return this.moment;
@@ -99,6 +98,14 @@ public class Order implements Serializable {
 
     public Set<OrderItem> getItems() {
         return this.items;
+    }
+
+    public Double getTotal() {
+        double sum = 0.0;
+        for (OrderItem x : items) {
+            sum += x.getSubTotal();
+        }
+        return sum;
     }
 
     @Override
