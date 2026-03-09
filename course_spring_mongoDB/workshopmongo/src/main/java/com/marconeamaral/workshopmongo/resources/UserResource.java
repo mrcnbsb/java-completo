@@ -2,6 +2,7 @@ package com.marconeamaral.workshopmongo.resources;
 
 //import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.marconeamaral.workshopmongo.domain.User;
+import com.marconeamaral.workshopmongo.dto.UserDTO;
 import com.marconeamaral.workshopmongo.services.UserService;
 
 @RestController //pra informar que será um recurso rest
@@ -33,9 +35,10 @@ public class UserResource { //controller
 
     @RequestMapping(method = RequestMethod.GET) //pra informar que esse método responde a requisições do tipo GET
     //@GetMapping //outra forma de informar que esse método responde a requisições do tipo GET
-    public ResponseEntity<List<User>> findAll() {                
+    public ResponseEntity<List<UserDTO>> findAll() {
         List<User> list = service.findAll(); //findAll() é um método do UserService que retorna uma lista de usuários. Ele provavelmente chama o método findAll() do UserRepository para buscar os dados no MongoDB.        
-        return ResponseEntity.ok().body(list); //ok() é um método estático que retorna um ResponseEntity com status HTTP 200 (OK). body(list) é um método que define o corpo da resposta como a lista de usuários.
+        List<UserDTO> listDto = list.stream().map(user -> new UserDTO(user)).collect(Collectors.toList()); //list.stream() é um método que retorna um fluxo de elementos da lista. map(x -> new UserDTO(x)) é uma operação de mapeamento que transforma cada elemento do fluxo (do tipo User) em um novo objeto do tipo UserDTO, usando o construtor que recebe um User como argumento. toList() é um método que coleta os elementos do fluxo em uma nova lista do tipo List<UserDTO>.    
+        return ResponseEntity.ok().body(listDto); //ok() é um método estático que retorna um ResponseEntity com status HTTP 200 (OK). body(list) é um método que define o corpo da resposta como a lista de usuários.
     }
         
 
