@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 //import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -39,6 +40,12 @@ public class UserResource { //controller
         List<User> list = service.findAll(); //findAll() é um método do UserService que retorna uma lista de usuários. Ele provavelmente chama o método findAll() do UserRepository para buscar os dados no MongoDB.        
         List<UserDTO> listDto = list.stream().map(user -> new UserDTO(user)).collect(Collectors.toList()); //list.stream() é um método que retorna um fluxo de elementos da lista. map(x -> new UserDTO(x)) é uma operação de mapeamento que transforma cada elemento do fluxo (do tipo User) em um novo objeto do tipo UserDTO, usando o construtor que recebe um User como argumento. toList() é um método que coleta os elementos do fluxo em uma nova lista do tipo List<UserDTO>.    
         return ResponseEntity.ok().body(listDto); //ok() é um método estático que retorna um ResponseEntity com status HTTP 200 (OK). body(list) é um método que define o corpo da resposta como a lista de usuários.
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET) //pra informar que esse método responde a requisições do tipo GET
+    public ResponseEntity<UserDTO> findById(@PathVariable String id) { //@PathVariable é uma anotação do Spring que indica que o valor do parâmetro id deve ser extraído da URL da requisição. Por exemplo, se a URL for /users/123, o valor "123" será atribuído ao parâmetro id.
+       User obj = service.findById(id); //findById() é um método do UserService que retorna um usuário com base no ID fornecido. Ele provavelmente chama o método findById() do UserRepository para buscar o dado no MongoDB. O resultado é armazenado na variável obj do tipo User.
+       return ResponseEntity.ok().body(new UserDTO(obj)); //ok() é um método estático que retorna um ResponseEntity com status HTTP 200 (OK). body(new UserDTO(obj)) é um método que define o corpo da resposta como um novo objeto do tipo UserDTO, criado a partir do objeto User retornado pelo serviço.        
     }
         
 
