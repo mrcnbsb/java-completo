@@ -1,8 +1,11 @@
 package com.marconeamaral.workshopmongo.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "user") //pra informar que essa classe é um documento do MongoDB e que a coleção correspondente a essa entidade se chama "user". Se não fosse especificado, o nome da coleção seria o mesmo da classe, ou seja, "User".
@@ -13,6 +16,9 @@ public class User implements Serializable {
     private String id;
     private String name;
     private String email;
+
+    @DBRef(lazy = true) //DBRef é uma anotação do Spring Data MongoDB que indica que o campo posts é uma referência a outra coleção no MongoDB. O atributo lazy = true indica que as postagens associadas a um usuário serão carregadas de forma preguiçosa, ou seja, somente quando forem acessadas pela primeira vez.
+    private List<Post> posts = new ArrayList<>(); //pra representar a relação entre usuário e postagens. Cada usuário pode ter várias postagens, e essa lista armazena as postagens associadas a um usuário específico.
 
     public User() {
     }
@@ -45,6 +51,14 @@ public class User implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public List<Post> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
     }
 
     @Override

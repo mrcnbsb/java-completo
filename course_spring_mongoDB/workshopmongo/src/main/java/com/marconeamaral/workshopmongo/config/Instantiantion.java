@@ -46,6 +46,10 @@ public class Instantiantion implements CommandLineRunner { //CommandLineRunner �
         Post post2 = new Post(null, sdf.parse("23/03/2018"), "Bom dia", "Acordei feliz hoje!", new AuthorDTO(maria));
 
         postRepository.saveAll(Arrays.asList(post1, post2)); //saveAll() é um método do MongoRepository que salva uma lista de documentos no MongoDB. Ele é uma forma mais eficiente de salvar múltiplos documentos de uma só vez, em vez de chamar save() para cada documento individualmente. Ele aceita uma coleção de documentos e os salva todos em uma única operação.    
+    
+        maria.getPosts().addAll(Arrays.asList(post1, post2)); //getPosts() é um método do objeto User que retorna a lista de posts associados a esse usuário. addAll() é um método da interface List que adiciona todos os elementos de uma coleção (neste caso, a lista de posts) à lista de posts do usuário Maria. Isso estabelece a relação entre o usuário e os posts, indicando que Maria é a autora dos posts post1 e post2.
+        userRepository.save(maria); //save() é um método do MongoRepository que salva um documento no MongoDB. Ele pode ser usado tanto para inserir um novo documento quanto para atualizar um documento
+    
     }
 
 }
