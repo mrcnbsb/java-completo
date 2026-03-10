@@ -1,0 +1,24 @@
+package com.marconeamaral.workshopmongo.services;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.marconeamaral.workshopmongo.domain.Post;
+import com.marconeamaral.workshopmongo.repository.PostRepository;
+import com.marconeamaral.workshopmongo.services.exception.ObjectNotFoundException;
+
+@Service
+public class PostService {
+
+    @Autowired //pra informar que o Spring deve fazer a injeção de dependência do UserRepository, ou seja, criar uma instância do UserRepository e atribuí-la à variável repo.
+    private PostRepository repo;
+    
+    public Post findById(String id) {
+       Optional<Post> obj = repo.findById(id); //findById() é um método do MongoRepository que retorna um Optional contendo o documento correspondente ao ID fornecido. O Optional é uma classe que pode conter um valor ou estar vazio, e é usada para evitar problemas de null pointer.
+       return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado")); //orElseThrow() é um método do Optional que retorna o valor contido no Optional se ele estiver
+    }
+
+
+}
