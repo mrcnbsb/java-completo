@@ -2,7 +2,6 @@ package com.marconeamaral.workshopmongo.config;
 
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.TimeZone;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 
 import com.marconeamaral.workshopmongo.domain.Post;
 import com.marconeamaral.workshopmongo.domain.User;
+import com.marconeamaral.workshopmongo.dto.AuthorDTO;
 import com.marconeamaral.workshopmongo.repository.PostRepository;
 import com.marconeamaral.workshopmongo.repository.UserRepository;
 
@@ -42,8 +42,8 @@ public class Instantiantion implements CommandLineRunner { //CommandLineRunner �
 
         userRepository.saveAll(Arrays.asList(maria, alex, bob)); //saveAll() é um método do MongoRepository que salva uma lista de documentos no MongoDB. Ele é uma forma mais eficiente de salvar múltiplos documentos de uma só vez, em vez de chamar save() para cada documento individualmente. Ele aceita uma coleção de documentos e os salva todos em uma única operação.    
 
-        Post post1 = new Post(null, sdf.parse("21/03/2018"), "Partiu viagem", "Vou viajar para São Paulo. Abraços!", maria);
-        Post post2 = new Post(null, sdf.parse("23/03/2018"), "Bom dia", "Acordei feliz hoje!", maria);
+        Post post1 = new Post(null, sdf.parse("21/03/2018"), "Partiu viagem", "Vou viajar para São Paulo. Abraços!",new AuthorDTO(maria));
+        Post post2 = new Post(null, sdf.parse("23/03/2018"), "Bom dia", "Acordei feliz hoje!", new AuthorDTO(maria));
 
         postRepository.saveAll(Arrays.asList(post1, post2)); //saveAll() é um método do MongoRepository que salva uma lista de documentos no MongoDB. Ele é uma forma mais eficiente de salvar múltiplos documentos de uma só vez, em vez de chamar save() para cada documento individualmente. Ele aceita uma coleção de documentos e os salva todos em uma única operação.    
     }
