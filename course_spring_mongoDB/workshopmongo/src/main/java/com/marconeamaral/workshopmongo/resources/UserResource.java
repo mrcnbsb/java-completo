@@ -21,7 +21,7 @@ import com.marconeamaral.workshopmongo.services.UserService;
 
 @RestController //pra informar que será um recurso rest
 @RequestMapping(value = "/users") //pra informar qual o caminho de acesso a esse recurso:localhost:8080/users
-public class UserResource { //controller
+public class UserResource<Post> { //controller
 
     // @RequestMapping(method = RequestMethod.GET) //pra informar que esse método responde a requisições do tipo GET
     // //@GetMapping //outra forma de informar que esse método responde a requisições do tipo GET
@@ -74,6 +74,13 @@ public class UserResource { //controller
         obj = service.update(obj); //update() é um método do UserService que atualiza um usuário existente no banco de dados. Ele provavelmente chama o método save() do UserRepository para salvar as alterações no MongoDB. O objeto atualizado é retornado e armazenado na variável obj.
         return ResponseEntity.noContent().build(); //noContent() é um método estático que retorna um ResponseEntity com status HTTP 204 (No Content). build() é um método que finaliza a construção do ResponseEntity e o retorna como resposta da requisição.
     }
+
+    @RequestMapping(value = "/{id}/posts", method = RequestMethod.GET) //pra informar que esse método responde a requisições do tipo GET e que o caminho de acesso a esse recurso é /users/{id}/posts, onde {id} é um parâmetro que representa o ID do usuário cujos posts serão buscados.
+    public ResponseEntity<List<com.marconeamaral.workshopmongo.domain.Post>> findPosts(@PathVariable String id) { //@PathVariable é uma anotação do Spring que indica que o valor do parâmetro id deve ser extraído da URL da requisição. Por exemplo, se a URL for /users/123/posts, o valor "123" será atribuído ao parâmetro id.
+       User obj = service.findById(id); //findById() é um método do UserService que retorna um usuário com base no ID fornecido. Ele provavelmente chama o método findById() do UserRepository para buscar o dado no MongoDB. O resultado é armazenado na variável obj do tipo User.
+       return ResponseEntity.ok().body(obj.getPosts()); //ok() é um método estático que retorna um ResponseEntity com status HTTP 200 (OK). body(obj.getPosts()) é um método que define o corpo da resposta como a lista de posts associada ao usuário retornado pelo serviço. getPosts() é um método do objeto User que retorna a lista de posts associados a esse usuário.
+    }
+
 
 
         
