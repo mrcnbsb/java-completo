@@ -60,6 +60,12 @@ public class UserResource { //controller
         return ResponseEntity.created(uri).build(); //created(uri) é um método estático que retorna um ResponseEntity com status HTTP 201 (Created) e um header "Location" contendo a URI do recurso criado. build() é um método que finaliza a construção do ResponseEntity e o retorna como resposta da requisição.
     }
 
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE) //pra informar que esse método responde a requisições do tipo DELETE e que o caminho de acesso a esse recurso é /users/{id}, onde {id} é um parâmetro que representa o ID do usuário a ser deletado.
+    public ResponseEntity<Void> delete(@PathVariable String id) { //@PathVariable é uma anotação do Spring que indica que o valor do parâmetro id deve ser extraído da URL da requisição. Por exemplo, se a URL for /users/123, o valor "123" será atribuído ao parâmetro id.
+       service.delete(id); //delete() é um método do UserService que remove um usuário do banco de dados. Ele provavelmente chama o método deleteById() do UserRepository para excluir o registro no MongoDB.
+       return ResponseEntity.noContent().build(); //noContent() é um método estático que retorna um ResponseEntity com status HTTP 204 (No Content). build() é um método que finaliza a construção do ResponseEntity e o retorna como resposta da requisição.
+    }
+
 
         
 

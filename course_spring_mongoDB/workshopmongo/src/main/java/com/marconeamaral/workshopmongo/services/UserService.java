@@ -34,4 +34,9 @@ public class UserService {
         return new User(objDto.getId(), objDto.getName(), objDto.getEmail()); //fromDTO() é um método que converte um objeto do tipo UserDTO em um objeto do tipo User. Ele recebe um UserDTO como argumento e retorna um novo objeto User, usando os dados do UserDTO para preencher os campos correspondentes do User.
     }
 
+    public void delete(String id){
+        findById(id); //findById() é chamado para verificar se o usuário com o ID fornecido existe. Se ele não existir, uma exceção ObjectNotFoundException será lançada, interrompendo a execução do método e evitando que o código continue tentando excluir um usuário que não existe.
+        repo.deleteById(id); //deleteById() é um método do MongoRepository que remove o documento correspondente ao ID fornecido da coleção correspondente à entidade User. Ele é usado para excluir um registro do banco de dados com base no ID.
+    }
+
 }
