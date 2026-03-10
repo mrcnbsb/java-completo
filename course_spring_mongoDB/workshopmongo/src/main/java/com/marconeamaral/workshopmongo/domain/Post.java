@@ -1,12 +1,15 @@
 package com.marconeamaral.workshopmongo.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.marconeamaral.workshopmongo.dto.AuthorDTO;
+import com.marconeamaral.workshopmongo.dto.CommentDTO;
 
 @Document(collection = "post") //Document é uma anotação do Spring Data MongoDB que indica que a classe é um documento do MongoDB. Ela é usada para mapear a classe para uma coleção no banco de dados. O nome da coleção será o mesmo da classe, mas em letras minúsculas (neste caso, "post").
 public class Post implements Serializable {
@@ -19,6 +22,8 @@ public class Post implements Serializable {
     private String title;
     private String body;
     private AuthorDTO author;
+
+    private List<CommentDTO> comments = new ArrayList<>(); //pra representar a relação entre post e comentários. Cada post pode ter vários comentários, e essa lista armazena os comentários associados a um post específico.   
 
     public Post() {
     }
@@ -69,6 +74,14 @@ public class Post implements Serializable {
 
     public void setAuthor(AuthorDTO author) {
         this.author = author;
+    }
+
+    public List<CommentDTO> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<CommentDTO> comments) {
+        this.comments = comments;
     }
 
     @Override

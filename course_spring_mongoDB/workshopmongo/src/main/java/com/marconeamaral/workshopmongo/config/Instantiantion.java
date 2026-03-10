@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import com.marconeamaral.workshopmongo.domain.Post;
 import com.marconeamaral.workshopmongo.domain.User;
 import com.marconeamaral.workshopmongo.dto.AuthorDTO;
+import com.marconeamaral.workshopmongo.dto.CommentDTO;
 import com.marconeamaral.workshopmongo.repository.PostRepository;
 import com.marconeamaral.workshopmongo.repository.UserRepository;
 
@@ -44,6 +45,13 @@ public class Instantiantion implements CommandLineRunner { //CommandLineRunner �
 
         Post post1 = new Post(null, sdf.parse("21/03/2018"), "Partiu viagem", "Vou viajar para São Paulo. Abraços!",new AuthorDTO(maria));
         Post post2 = new Post(null, sdf.parse("23/03/2018"), "Bom dia", "Acordei feliz hoje!", new AuthorDTO(maria));
+
+        CommentDTO c1 = new CommentDTO("Boa viagem mano!", sdf.parse("21/03/2018"), new AuthorDTO(alex)); //CommentDTO é um objeto de transferência de dados (DTO) que representa um comentário em um post. Ele contém os campos text, date e author, que armazenam o texto do comentário, a data do comentário e as informações do autor do comentário, respectivamente. Neste caso, c1 é um comentário feito por Alex para o post1.
+        CommentDTO c2 = new CommentDTO("Aproveite!", sdf.parse("22/03/2018"), new AuthorDTO(bob)); //c2 é um comentário feito por Bob para o post1.
+        CommentDTO c3 = new CommentDTO("Tenha um ótimo dia!", sdf.parse("23/03/2018"), new AuthorDTO(alex)); //c3 é um comentário feito por Alex para o post2.
+
+        post1.getComments().addAll(Arrays.asList(c1, c2)); //getComments() é um método do objeto Post que retorna a lista de comentários associados a esse post. addAll() é um método da interface List que adiciona todos os elementos de uma coleção (neste caso, a lista de comentários) à lista de comentários do post1. Isso estabelece a relação entre o post e os comentários, indicando que c1 e c2 são comentários associados ao post1.
+        post2.getComments().addAll(Arrays.asList(c3)); //getComments() é um método do objeto Post que retorna a lista de comentários associados a esse post. addAll() é um método da interface List que adiciona todos os elementos de uma coleção (neste caso, a lista de comentários) à lista de comentários do post2. Isso estabelece a relação entre o post e os comentários, indicando que c3 é um comentário associado ao post2.
 
         postRepository.saveAll(Arrays.asList(post1, post2)); //saveAll() é um método do MongoRepository que salva uma lista de documentos no MongoDB. Ele é uma forma mais eficiente de salvar múltiplos documentos de uma só vez, em vez de chamar save() para cada documento individualmente. Ele aceita uma coleção de documentos e os salva todos em uma única operação.    
     
