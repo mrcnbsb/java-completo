@@ -67,6 +67,15 @@ public class UserResource { //controller
     }
 
 
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT) //pra informar que esse método responde a requisições do tipo POST e que o caminho de acesso a esse recurso é /users, onde {id} é um parâmetro que representa o ID do usuário a ser buscado.
+    public ResponseEntity<Void> update(@RequestBody UserDTO objDto, @PathVariable String id) { //@RequestBody é uma anotação do Spring que indica que o corpo da requisição deve ser convertido em um objeto do tipo UserDTO. O objeto UserDTO será criado a partir dos dados enviados no corpo da requisição.
+        User obj = service.fromDTO(objDto); //fromDTO() é um método do UserService que converte um objeto do tipo UserDTO em um objeto do tipo User. Ele recebe um UserDTO como argumento e retorna um novo objeto User, usando os dados do UserDTO para preencher os campos correspondentes do User.
+        obj.setId(id); //setId() é um método do objeto User que define o valor do campo id. Ele recebe uma string como argumento e atribui esse valor ao campo id do objeto obj. Isso é necessário para garantir que o ID do usuário a ser atualizado seja o mesmo que o ID fornecido na URL da requisição.
+        obj = service.update(obj); //update() é um método do UserService que atualiza um usuário existente no banco de dados. Ele provavelmente chama o método save() do UserRepository para salvar as alterações no MongoDB. O objeto atualizado é retornado e armazenado na variável obj.
+        return ResponseEntity.noContent().build(); //noContent() é um método estático que retorna um ResponseEntity com status HTTP 204 (No Content). build() é um método que finaliza a construção do ResponseEntity e o retorna como resposta da requisição.
+    }
+
+
         
 
 }

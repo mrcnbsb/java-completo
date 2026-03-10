@@ -39,4 +39,15 @@ public class UserService {
         repo.deleteById(id); //deleteById() é um método do MongoRepository que remove o documento correspondente ao ID fornecido da coleção correspondente à entidade User. Ele é usado para excluir um registro do banco de dados com base no ID.
     }
 
+    public User update(User obj) {
+        User newObj = findById(obj.getId()); //findById() é chamado para verificar se o usuário com o ID fornecido existe. Se ele não existir, uma exceção ObjectNotFoundException será lançada, interrompendo a execução do método e evitando que o código continue tentando atualizar um usuário que não existe. O resultado é armazenado na variável newObj do tipo User.
+        updateData(newObj, obj); //updateData() é um método auxiliar que atualiza os dados do objeto newObj com base nos dados do objeto obj. Ele recebe os dois objetos como argumentos e copia os valores dos campos name e email de obj para newObj.
+        return repo.save(newObj); //save() é um método do MongoRepository que salva um documento no MongoDB. Ele pode ser usado tanto para inserir um novo documento quanto para atualizar um documento existente. Se o ID do documento for null, ele será inserido como um novo documento. Caso contrário, ele será atualizado com base no ID fornecido. Neste caso, como newObj já possui um ID válido, ele será atualizado no banco de dados com os novos dados.
+    }
+
+    private void updateData(User newObj, User obj) {
+        newObj.setName(obj.getName()); //setName() é um método do objeto User que define o valor do campo name. Ele recebe uma string como argumento e atribui esse valor ao campo name do objeto newObj.
+        newObj.setEmail(obj.getEmail()); //setEmail() é um método do objeto User que define o valor do campo email. Ele recebe uma string como argumento e atribui esse valor ao campo email do objeto newObj.
+    }
+
 }
