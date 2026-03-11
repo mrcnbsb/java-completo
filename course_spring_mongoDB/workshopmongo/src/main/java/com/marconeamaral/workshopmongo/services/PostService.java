@@ -22,7 +22,8 @@ public class PostService {
     }
 
     public List<Post> findByTitle(String text) {
-        return repo.findByTitleContainingIgnoreCase(text); //findByTitleContaining() é um método de consulta personalizada que o Spring Data MongoDB interpreta e implementa automaticamente. Ele busca por documentos na coleção "post" onde o campo "title" contém a string fornecida como argumento (text). O resultado é uma lista de objetos Post que correspondem à condição de busca.
+        //return repo.findByTitleContainingIgnoreCase(text); //findByTitleContaining() é um método de consulta personalizada que o Spring Data MongoDB interpreta e implementa automaticamente. Ele busca por documentos na coleção "post" onde o campo "title" contém a string fornecida como argumento (text). O resultado é uma lista de objetos Post que correspondem à condição de busca.
+        return repo.searchTitle(text); //searchTitle() é um método de consulta personalizada que o Spring Data MongoDB interpreta e implementa automaticamente. Ele busca por documentos na coleção "post" onde o campo "title" corresponde a uma expressão regular (regex) fornecida como argumento (text) e ignora diferenças entre maiúsculas e minúsculas. O resultado é uma lista de objetos Post que correspondem à condição de busca.
     }
 
 
