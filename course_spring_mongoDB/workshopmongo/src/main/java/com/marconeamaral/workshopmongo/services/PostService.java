@@ -1,5 +1,6 @@
 package com.marconeamaral.workshopmongo.services;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,6 +25,11 @@ public class PostService {
     public List<Post> findByTitle(String text) {
         //return repo.findByTitleContainingIgnoreCase(text); //findByTitleContaining() é um método de consulta personalizada que o Spring Data MongoDB interpreta e implementa automaticamente. Ele busca por documentos na coleção "post" onde o campo "title" contém a string fornecida como argumento (text). O resultado é uma lista de objetos Post que correspondem à condição de busca.
         return repo.searchTitle(text); //searchTitle() é um método de consulta personalizada que o Spring Data MongoDB interpreta e implementa automaticamente. Ele busca por documentos na coleção "post" onde o campo "title" corresponde a uma expressão regular (regex) fornecida como argumento (text) e ignora diferenças entre maiúsculas e minúsculas. O resultado é uma lista de objetos Post que correspondem à condição de busca.
+    }
+
+    public List<Post> fullSearch(String text, Date minDate, Date maxDate) {
+        maxDate = new Date(maxDate.getTime() + 24 * 60 * 60 * 1000); //adiciona um dia à data máxima para incluir os posts do dia seguinte. Isso é necessário porque a consulta de busca completa usa o operador $lte (menor ou igual) para comparar as datas, e sem essa adição, os posts do dia seguinte não seriam incluídos na busca.
+        return repo.fullSearch(text, minDate, maxDate); //fullSearch() é um método de consulta personalizada que o Spring Data MongoDB interpreta e implementa automaticamente. Ele busca por documentos na coleção "post" onde o campo "title" contém a string fornecida como argumento (text) e o campo "date" está entre as datas fornecidas como argumentos (minDate e maxDate). O resultado é uma lista de objetos Post que correspondem à condição de busca.
     }
 
 
